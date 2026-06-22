@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* Dashboard Top Bar */
+        .dash-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 5%;
+            background: rgba(10, 11, 16, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .dash-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .dash-logo i {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dash-topbar .logout-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #f87171;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .dash-topbar .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.6);
+            transform: translateY(-2px);
+        }
+        /* Dashboard Page */
+        .dashboard-container {
+            padding: 110px 0 60px;
+        }
+        .welcome-banner {
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+            border: 1px solid var(--border-color);
+        }
+        .welcome-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .welcome-text p { color: var(--text-muted); font-size: 1rem; }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .metric-card {
+            padding: 25px;
+            text-align: center;
+            border-radius: 16px;
+        }
+        .metric-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+        .metric-card h3 { font-size: 1.8rem; margin-bottom: 5px; color: #fff; }
+        .metric-card p { font-size: 0.85rem; color: var(--text-muted); }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .panel-header h2 { font-size: 1.4rem; color: #fff; }
+        .admin-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem; }
+        th, td { padding: 14px 18px; border-bottom: 1px solid var(--border-color); white-space: nowrap; }
+        th { background: rgba(255,255,255,0.02); color: #fff; font-weight: 500; }
+        td { color: var(--text-muted); }
+        tr:last-child td { border-bottom: none; }
+        .btn-table-action {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-table-action:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .sidebar-card { padding: 25px; margin-bottom: 25px; border-radius: 16px; }
+        .sidebar-card h3 { font-size: 1.15rem; margin-bottom: 15px; color: #fff; }
+        .log-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .log-item:last-child { border-bottom: none; }
+        .log-time { color: var(--accent); font-weight: 600; margin-right: 6px; }
+
+        @media (max-width: 1024px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .welcome-banner { flex-direction: column; text-align: center; }
+            .welcome-text h1 { font-size: 1.6rem; }
+            .dash-topbar { padding: 14px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slim Dashboard Top Bar (No Full Navbar) -->
+    <div class="dash-topbar">
+        <a href="index.html" class="dash-logo">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </a>
+        <a href="index.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+
+    <!-- Main Dashboard Container -->
+    <div class="container dashboard-container">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner scroll-reveal active">
+            <div class="welcome-text">
+                <h1 id="admin-greeting">Welcome back, Admin!</h1>
+                <p>System portal is active. Real-time data and course controls below.</p>
+            </div>
+            <button class="btn-gradient">Global System Status</button>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid scroll-reveal active">
+            <div class="metric-card glass-panel">
+                <i class="fas fa-users"></i>
+                <h3>1,280</h3>
+                <p>Total Registrations</p>
+            </div>
+            <div class="metric-card glass-panel">
+                <i class="fas fa-laptop-code"></i>
+                <h3>42</h3>
+                <p>Active Courses</p>
+            </div>
+            <div class="metric-card glass-panel">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>$32,450</h3>
+                <p>Monthly Revenue</p>
+            </div>
+            <div class="metric-card glass-panel">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>5</h3>
+                <p>Open Tickets</p>
+            </div>
+        </div>
+
+        <!-- Core Dashboard Grid -->
+        <div class="dashboard-grid scroll-reveal active">
+            <!-- Course Management table -->
+            <div>
+                <div class="panel-header">
+                    <h2>Manage Core Programs</h2>
+                    <button class="btn-gradient" style="padding: 8px 18px; font-size: 0.85rem;">Add New Cohort</button>
+                </div>
+                <div class="admin-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Category</th>
+                                <th>Students</th>
+                                <th>Cohorts</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color: #fff; font-weight: 500; white-space: normal; min-width: 200px;">Full Stack Web Development</td>
+                                <td>Development</td>
+                                <td>540</td>
+                                <td>3 Active</td>
+                                <td><button class="btn-table-action">Edit Course</button></td>
+                            </tr>
+                            <tr>
+                                <td style="color: #fff; font-weight: 500; white-space: normal; min-width: 200px;">UI/UX Design Frameworks</td>
+                                <td>Design</td>
+                                <td>380</td>
+                                <td>2 Active</td>
+                                <td><button class="btn-table-action">Edit Course</button></td>
+                            </tr>
+                            <tr>
+                                <td style="color: #fff; font-weight: 500; white-space: normal; min-width: 200px;">Data Science & ML Bootcamp</td>
+                                <td>Data Science</td>
+                                <td>240</td>
+                                <td>1 Active</td>
+                                <td><button class="btn-table-action">Edit Course</button></td>
+                            </tr>
+                            <tr>
+                                <td style="color: #fff; font-weight: 500; white-space: normal; min-width: 200px;">Modern JavaScript Fundamentals</td>
+                                <td>Prep Course</td>
+                                <td>120</td>
+                                <td>Self-paced</td>
+                                <td><button class="btn-table-action">Edit Course</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sidebar logs -->
+            <div>
+                <div class="sidebar-card glass-panel">
+                    <h3><i class="fas fa-stream" style="color: var(--accent); margin-right: 8px;"></i>Live Operations Log</h3>
+                    <div class="log-item">
+                        <span class="log-time">12:40 PM</span> Amanda Clark completed the Full Stack graduation test.
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">12:35 PM</span> Admin admin@stackly.com logged in successfully.
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">11:12 AM</span> Refund issued to ticket #2041 resolved.
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">10:05 AM</span> Curriculum 'Cloud Deploy Systems' updated.
+                    </div>
+                    <button class="btn-secondary full-width" style="margin-top: 20px; font-size: 0.85rem;">View Full Audit Log</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.name) {
+                document.getElementById('admin-greeting').textContent = `Welcome back, ${currentUser.name}!`;
+            }
+        });
+    </script>
+</body>
+</html>

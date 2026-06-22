@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10, 11, 16, 0.85) 0%, rgba(20, 22, 35, 0.9) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 40%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        .blog-filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: transparent;
+        }
+        .read-time {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar" id="myNavbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </div>
+
+        <button class="hamburger" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="blog.html" class="nav-link active"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Blog Hero -->
+    <section class="page-hero">
+        <div class="container scroll-reveal">
+            <h1>Stackly Insights & Articles</h1>
+            <p>Stay up to date with engineering standards, design principles, mock drills, and industry advice.</p>
+        </div>
+    </section>
+
+
+    <!-- SECTION 2: Blog Articles Grid -->
+    <section class="container scroll-reveal" style="margin-bottom: 80px;">
+        <div class="blog-filter-buttons">
+            <button class="filter-btn active">All Topics</button>
+            <button class="filter-btn">Web Tech</button>
+            <button class="filter-btn">Design Specs</button>
+            <button class="filter-btn">Career Guides</button>
+            <button class="filter-btn">AI Trends</button>
+        </div>
+
+        <div class="courses-grid">
+            <!-- Article 1 -->
+            <div class="course-card glass-panel">
+                <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600');">
+                    <span class="course-badge">Development</span>
+                </div>
+                <div class="course-body">
+                    <span class="read-time">5 Min Read</span>
+                    <h3 style="margin-top: 10px;">Why TypeScript is Dominating Modern Frontend Frameworks</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Exploring type-safety, interface declarations, and how large organizations scale JavaScript codebases.</p>
+                    <div class="course-instructor" style="margin-bottom: 0;">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200" alt="Author Profile">
+                        <span>Sarah Jenkins &bull; June 20, 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="course-card glass-panel">
+                <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600');">
+                    <span class="course-badge">Design</span>
+                </div>
+                <div class="course-body">
+                    <span class="read-time">8 Min Read</span>
+                    <h3 style="margin-top: 10px;">Micro-Interactions: Enhancing UX with Subtle Animations</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">How tiny transitions on buttons, forms, and alerts improve user retention and product accessibility.</p>
+                    <div class="course-instructor" style="margin-bottom: 0;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="Author Profile">
+                        <span>David Vance &bull; June 18, 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="course-card glass-panel">
+                <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600');">
+                    <span class="course-badge">Career</span>
+                </div>
+                <div class="course-body">
+                    <span class="read-time">6 Min Read</span>
+                    <h3 style="margin-top: 10px;">Pivot Tactics: Transitioning from Non-Tech to Dev Roles</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Structuring GitHub repositories, contributing to open source, and passing recruiter filters without a CS degree.</p>
+                    <div class="course-instructor" style="margin-bottom: 0;">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200" alt="Author Profile">
+                        <span>Elena Rostova &bull; June 15, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Student Success Stories -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Alumni Spotlights</h2>
+                <p>Real graduates sharing real career pivot reviews.</p>
+            </div>
+            <div class="why-container">
+                <div class="why-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600" class="why-image" alt="Alumni Spotlight">
+                </div>
+                <div class="why-content">
+                    <span class="read-time">Featured Story</span>
+                    <h2 style="margin-top: 10px;">How History Major Amanda Clark Pivoted to Microsoft Eng Role</h2>
+                    <p>Amanda details her 9-month study schedule with Stackly Academy, mastering React, Node, and SQL databases, and conquering the Microsoft systems round.</p>
+                    <p style="color: var(--text-muted);">"The curriculum layout was focused on production deploy tasks. I wasn't just solving trivia; I was constructing systems."</p>
+                    <button class="btn-gradient">Read Full Interview</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Industry Trends panel -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Trending in Technology</h2>
+                <p>Quick briefs on changing engineering frameworks and industry trends.</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Server Components & Streaming: The Next React Phase</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>With data loading moving back to server architectures, modern UI developers must understand streaming payloads and server components.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Figma AI Integration: Optimizing Asset Design Workflows</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Learn how to utilize prompt layouts to automatically generate UI wireframes, freeing design resources for intensive user testing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Newsletter CTA -->
+    <section class="cta-section container scroll-reveal">
+        <div class="cta-box glass-panel">
+            <h2>Get Fresh Articles in Your Inbox</h2>
+            <p>Subscribe to our newsletter to receive the latest design guidelines, course updates, and mock interview tips.</p>
+            <form class="cta-form" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit" class="btn-gradient">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i> stackly
+                    </div>
+                    <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog Articles</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="404.html">Web Development</a></li>
+                        <li><a href="404.html">UI/UX Layouts</a></li>
+                        <li><a href="404.html">Data Engineering</a></li>
+                        <li><a href="404.html">Cloud Architecture</a></li>
+                        <li><a href="404.html">Marketing Strategies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
+                        <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

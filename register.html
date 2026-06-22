@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #11131e 0%, #0a0b10 100%);
+            padding: 80px 20px 40px;
+        }
+        .register-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px 30px;
+        }
+        .register-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .register-header .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .register-header h2 {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .register-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .error-border {
+            border-color: var(--error) !important;
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .form-footer a {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container glass-panel scroll-reveal active">
+        <div class="register-header">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-graduation-cap"></i> stackly
+            </div>
+            <h2>Get Started</h2>
+            <p>Create your Stackly student profile to start learning</p>
+        </div>
+
+        <form id="registerForm">
+            <!-- Name Input -->
+            <div class="input-wrapper">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name-input" placeholder="Full Name (Max 16 chars, letters only)" required>
+                </div>
+                <div class="error-text" id="error-name">Name must contain only alphabets and be maximum 16 characters.</div>
+            </div>
+
+            <!-- Email Input -->
+            <div class="input-wrapper">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email-input" placeholder="Email Address" required>
+                </div>
+                <div class="error-text" id="error-email">Please enter a valid email address.</div>
+            </div>
+
+            <!-- Mobile Input -->
+            <div class="input-wrapper">
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="text" id="phone-input" placeholder="Mobile Number (Exactly 10 digits)" required>
+                </div>
+                <div class="error-text" id="error-phone">Mobile number must contain exactly 10 digits.</div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="input-wrapper">
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password-input" placeholder="Strong Password" required>
+                    <button type="button" class="toggle-password" data-target="password-input" aria-label="Toggle Password Visibility">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="error-text" id="error-password">Password must be at least 8 characters and include uppercase, lowercase, numbers, and special characters.</div>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="input-wrapper">
+                <div class="input-group">
+                    <i class="fas fa-shield-alt"></i>
+                    <input type="password" id="confirm-password-input" placeholder="Confirm Password" required>
+                    <button type="button" class="toggle-password" data-target="confirm-password-input" aria-label="Toggle Confirm Password Visibility">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="error-text" id="error-confirm">Passwords do not match.</div>
+            </div>
+
+            <button type="submit" id="submit-register" class="btn-gradient full-width">Create Account <i class="fas fa-arrow-right"></i></button>
+        </form>
+
+        <div class="form-footer">
+            Already have an account? <a href="login.html">Log In</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

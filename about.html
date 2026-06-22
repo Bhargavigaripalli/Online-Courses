@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10, 11, 16, 0.9) 0%, rgba(20, 22, 35, 0.95) 100%), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 40%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: transparent;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--primary);
+            border: 4px solid var(--bg-dark);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        .timeline-item:hover::after {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+        }
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+        .right::after {
+            left: -8px;
+        }
+        .timeline-content {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .timeline-content h3 {
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        .partner-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            opacity: 0.7;
+        }
+        .partner-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left;
+            }
+            .timeline-item::after {
+                left: 23px;
+            }
+            .left {
+                left: 0;
+            }
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar" id="myNavbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </div>
+
+        <button class="hamburger" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: About Hero -->
+    <section class="page-hero">
+        <div class="container scroll-reveal">
+            <h1>Educating Minds, Empowering Futures</h1>
+            <p>We are dedicated to providing accessible, high-quality, and job-oriented technical education to students across the globe.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Core Values -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>These values define our culture, our course curriculum build-outs, and our commitment to student success.</p>
+            </div>
+            <div class="category-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="category-card glass-panel">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Constant Innovation</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">We constantly update our training modules to align with the latest industrial updates and technologies.</p>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-universal-access"></i>
+                    <h3>Absolute Accessibility</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Making premium mentorship available at prices that represent true value, supporting inclusive study programs.</p>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-award"></i>
+                    <h3>Commitment to Quality</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Ensuring all learners acquire job-ready capabilities through hands-on labs and direct mentor consultations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Timeline Journey -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Our Journey</h2>
+                <p>A look back at how Stackly Academy has grown over the years to become an industry leader.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-panel">
+                        <h3>2023</h3>
+                        <h4>Founding Stackly</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Launched with just 5 coding courses and a vision to bridge the industry-academia gap.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content glass-panel">
+                        <h3>2024</h3>
+                        <h4>100K Enrolled Students</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Expanded the catalog to include design and business streams, reaching learners in 40+ countries.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-panel">
+                        <h3>2025</h3>
+                        <h4>Placement Cell Launch</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Partnered with leading corporations to facilitate direct recruitment for our graduates.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content glass-panel">
+                        <h3>2026</h3>
+                        <h4>Global Accreditation</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Recognized as a leading accredited technical academy providing verified credentials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Leadership Team -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Leadership & Advisors</h2>
+                <p>Meet the visionaries directing Stackly Academy towards educational excellence.</p>
+            </div>
+            <div class="mentors-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <!-- Leader 1 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=300" class="mentor-img" alt="Leader Profile">
+                    <h3>Dr. Evelyn Vance</h3>
+                    <p>Co-Founder & CEO</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=300" class="mentor-img" alt="Leader Profile">
+                    <h3>Marcus Thorne</h3>
+                    <p>Chief Product Officer</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300" class="mentor-img" alt="Leader Profile">
+                    <h3>Dr. Alan Carter</h3>
+                    <p>Head of Education</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Accreditations & Partners -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Our Partners & Accreditation</h2>
+                <p>Our courses are designed alongside tech giants. Our certificates are widely trusted.</p>
+            </div>
+            <div class="partner-logos">
+                <div class="partner-logo"><i class="fab fa-google"></i> Google Partner</div>
+                <div class="partner-logo"><i class="fab fa-aws"></i> AWS Academy</div>
+                <div class="partner-logo"><i class="fab fa-microsoft"></i> Microsoft</div>
+                <div class="partner-logo"><i class="fab fa-ibm"></i> IBM Collaboration</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i> stackly
+                    </div>
+                    <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog Articles</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="404.html">Web Development</a></li>
+                        <li><a href="404.html">UI/UX Layouts</a></li>
+                        <li><a href="404.html">Data Engineering</a></li>
+                        <li><a href="404.html">Cloud Architecture</a></li>
+                        <li><a href="404.html">Marketing Strategies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
+                        <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

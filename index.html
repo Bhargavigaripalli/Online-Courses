@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Academy | Premium Online Learning Platform</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="common.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar" id="myNavbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </div>
+
+        <button class="hamburger" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            <!-- Mobile actions menu -->
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Hero Section (with Slider, Overlay & Glass Lookup Card) -->
+    <section class="hero-section">
+        <div class="bg-slider">
+            <div class="slide slide-1"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-container">
+            <div class="hero-content scroll-reveal">
+                <h1>Shape Your Future with Premium Learning <i class="fas fa-book floating-book"></i></h1>
+                <p>Unlock access to professional-grade courses mentored by top industry veterans. Learn code, design, business, and tech at your own pace.</p>
+                <button class="btn-gradient">Explore Courses</button>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10K+</h3>
+                        <span>Premium Courses</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500K+</h3>
+                        <span>Enrolled Students</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3>150+</h3>
+                        <span>Expert Mentors</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-card-wrapper scroll-reveal">
+                <div class="glass-course-card">
+                    <h3>Find Your Path</h3>
+                    <form id="courseLookupForm" onsubmit="event.preventDefault();">
+                        <div class="input-wrapper">
+                            <div class="input-group">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search Courses (e.g. JavaScript)">
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <div class="input-group">
+                                <i class="fas fa-laptop-code"></i>
+                                <select>
+                                    <option value="">Select Category</option>
+                                    <option value="dev">Development</option>
+                                    <option value="design">UI/UX Design</option>
+                                    <option value="biz">Business</option>
+                                    <option value="mkt">Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <div class="input-group">
+                                <i class="fas fa-layer-group"></i>
+                                <select>
+                                    <option value="">Skill Level</option>
+                                    <option value="beg">Beginner</option>
+                                    <option value="int">Intermediate</option>
+                                    <option value="adv">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-gradient full-width">Find Courses</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Trust & Numbers Section -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Our Achievements</h2>
+                <p>Trusted by professionals worldwide for expanding technical skillsets and driving career acceleration.</p>
+            </div>
+            <div class="category-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="category-card glass-panel">
+                    <i class="fas fa-star" style="color: var(--accent);"></i>
+                    <h3>4.9 Rating</h3>
+                    <span>From 40,000+ Reviews</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>95% Placement</h3>
+                    <span>Dedicated Job Portal</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-handshake"></i>
+                    <h3>200+ Partners</h3>
+                    <span>Leading Tech Companies</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Accredited</h3>
+                    <span>Global Certifications</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Course Categories -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Explore Categories</h2>
+                <p>Discover courses grouped by major disciplines. Dive deep into targeted skills.</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card glass-panel">
+                    <i class="fas fa-code"></i>
+                    <h3>Development</h3>
+                    <span>2,500+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <span>1,200+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Business</h3>
+                    <span>800+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Marketing</h3>
+                    <span>950+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity</h3>
+                    <span>600+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-database"></i>
+                    <h3>Data Science</h3>
+                    <span>1,100+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Computing</h3>
+                    <span>500+ Courses</span>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-camera"></i>
+                    <h3>Photography</h3>
+                    <span>700+ Courses</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Featured Courses Grid -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Featured Courses</h2>
+                <p>Gain specialized, job-ready training. Enroll in our highest rated flagship cohorts.</p>
+            </div>
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card glass-panel">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=600');">
+                        <span class="course-badge">Best Seller</span>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta">
+                            <span><i class="fas fa-book-open"></i> 24 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 40 Hrs</span>
+                        </div>
+                        <h3>Full Stack Web Development Masterclass</h3>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200" alt="Instructor Profile">
+                            <span>Sarah Jenkins, Tech Lead</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-price">$129</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i> 4.9 (1.2k)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card glass-panel">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1581291518655-9523c932ded7?q=80&w=600');">
+                        <span class="course-badge">Trending</span>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta">
+                            <span><i class="fas fa-book-open"></i> 18 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 32 Hrs</span>
+                        </div>
+                        <h3>UI/UX Design Frameworks & Prototyping</h3>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="Instructor Profile">
+                            <span>David Vance, Lead Designer</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-price">$99</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i> 4.8 (850)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card glass-panel">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=600');">
+                        <span class="course-badge">Advanced</span>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta">
+                            <span><i class="fas fa-book-open"></i> 30 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 55 Hrs</span>
+                        </div>
+                        <h3>Data Science, AI & Machine Learning Bootcamp</h3>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200" alt="Instructor Profile">
+                            <span>Dr. Alan Carter, AI Scientist</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-price">$149</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i> 4.9 (2k)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Why Choose Us -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="why-container">
+                <div class="why-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800" class="why-image" alt="Students studying together">
+                    <div class="why-floating-card glass-panel">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <h4>Top Rated Platform</h4>
+                            <p>Global student excellence choice</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-content">
+                    <h2>Why Stackly Academy Stands Out</h2>
+                    <p>We build our courses in collaboration with leading firms. We don't just teach theory; we focus on real-world labs, portfolio building, and job-oriented skills.</p>
+                    <div class="why-features">
+                        <div class="why-feature-item">
+                            <i class="fas fa-laptop"></i>
+                            <div>
+                                <h3>Flexible Learning Schedule</h3>
+                                <p>Self-paced lessons, interactive assignments, and lifetime course access.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3>Active Community Workspace</h3>
+                                <p>Join our Slack / Discord networks to collaborate with peers and staff.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature-item">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h3>Industry Recognized Certification</h3>
+                                <p>Gain shareable digital badges and certificates valid globally.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Mentors / Instructors -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Our Instructors</h2>
+                <p>Learn directly from professionals who build core applications at Fortune 500 companies.</p>
+            </div>
+            <div class="mentors-grid">
+                <!-- Mentor 1 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300" class="mentor-img" alt="Mentor Profile">
+                    <h3>Sarah Jenkins</h3>
+                    <p>Full Stack Tech Lead</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300" class="mentor-img" alt="Mentor Profile">
+                    <h3>David Vance</h3>
+                    <p>Principal UI/UX Designer</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Mentor 3 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300" class="mentor-img" alt="Mentor Profile">
+                    <h3>Dr. Alan Carter</h3>
+                    <p>Machine Learning Lead</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Mentor 4 -->
+                <div class="mentor-card glass-panel">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300" class="mentor-img" alt="Mentor Profile">
+                    <h3>Elena Rostova</h3>
+                    <p>VP Cloud Architecture</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Testimonial Slider -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>What Our Students Say</h2>
+                <p>Discover how Stackly Academy helped our graduates pivot their careers and land dreams jobs.</p>
+            </div>
+
+            <div class="testimonial-container glass-panel">
+                <div class="testimonial-track">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide">
+                        <p>The Full Stack Web Development cohort was life-changing. The projects were challenging and mirrored the tasks I now perform as a Software Engineer at Microsoft. The mentor guidance was top-notch.</p>
+                        <div class="testi-user">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150" alt="Student Profile">
+                            <div class="testi-info">
+                                <h4>Amanda Clark</h4>
+                                <span>Software Engineer, Microsoft</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <p>Transitioning from Graphic Design to UX Design felt daunting until I took David's masterclass. The structuring of user testing and wireframe iterations completely reshaped my perspective.</p>
+                        <div class="testi-user">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150" alt="Student Profile">
+                            <div class="testi-info">
+                                <h4>Marcus Thorne</h4>
+                                <span>UI/UX Designer, Figma</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <p>The AI and Machine Learning bootcamp was extensive and hands-on. We deployed real-world predictive models and NLP tasks. I secured a Machine Learning Internship within weeks of graduating.</p>
+                        <div class="testi-user">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=150" alt="Student Profile">
+                            <div class="testi-info">
+                                <h4>Lila Patel</h4>
+                                <span>ML Intern, NVIDIA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Pricing Tiers -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Flexible Pricing Plans</h2>
+                <p>Invest in your technical growth. Choose a subscription model that fits your budget.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card glass-panel">
+                    <h3>Basic Membership</h3>
+                    <div class="pricing-price">$29<span>/mo</span></div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Access to 1,000+ basic tutorials</li>
+                        <li><i class="fas fa-check-circle"></i> Self-paced study courses</li>
+                        <li><i class="fas fa-check-circle"></i> Community forum support</li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> Certification badges</li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> 1-on-1 Mentor consultation</li>
+                    </ul>
+                    <button class="btn-secondary">Subscribe</button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card glass-panel popular">
+                    <span class="popular-badge">Most Popular</span>
+                    <h3>Premium Pass</h3>
+                    <div class="pricing-price">$59<span>/mo</span></div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Access to all 10,000+ courses</li>
+                        <li><i class="fas fa-check-circle"></i> Digital verified certificates</li>
+                        <li><i class="fas fa-check-circle"></i> Slack channel collaboration</li>
+                        <li><i class="fas fa-check-circle"></i> Interactive code labs</li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> 1-on-1 Mentor consultation</li>
+                    </ul>
+                    <button class="btn-gradient">Get Premium</button>
+                </div>
+
+                <!-- Elite Plan -->
+                <div class="pricing-card glass-panel">
+                    <h3>Elite Mentor</h3>
+                    <div class="pricing-price">$99<span>/mo</span></div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Everything in Premium Pass</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited verified certifications</li>
+                        <li><i class="fas fa-check-circle"></i> Monthly 1-on-1 expert support</li>
+                        <li><i class="fas fa-check-circle"></i> Job placement referral portal</li>
+                        <li><i class="fas fa-check-circle"></i> Access to live tech conferences</li>
+                    </ul>
+                    <button class="btn-secondary">Get Elite</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: FAQ Accordion -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Have inquiries about our cohorts? Check our rapid resolution list below.</p>
+            </div>
+            <div class="faq-accordion">
+                <!-- Item 1 -->
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Are the certification badges valid globally?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Our credentials are back-linked to credible verification authorities and can be linked to your LinkedIn profile or resume for recruiter checks.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Can I request a refund if a course isn't suitable?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We offer a full 14-day refund window for subscriptions or direct cohorts if you are not fully satisfied with your experience.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Is there dynamic support if I get stuck on a coding lab?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Premium students gain access to dedicated Slack workspaces populated by technical mentors and teaching assistants who resolve ticketed queries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: Bottom CTA Newsletter Section -->
+    <section class="cta-section container scroll-reveal">
+        <div class="cta-box glass-panel">
+            <h2>Accelerate Your Career Today</h2>
+            <p>Subscribe to our newsletter to receive curated tech updates, course discounts, and mentor webinars straight to your inbox.</p>
+            <form class="cta-form" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn-gradient">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i> stackly
+                    </div>
+                    <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog Articles</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="404.html">Web Development</a></li>
+                        <li><a href="404.html">UI/UX Layouts</a></li>
+                        <li><a href="404.html">Data Engineering</a></li>
+                        <li><a href="404.html">Cloud Architecture</a></li>
+                        <li><a href="404.html">Marketing Strategies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
+                        <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="script.js"></script>
+</body>
+</html>

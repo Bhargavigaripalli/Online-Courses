@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* Dashboard Top Bar */
+        .dash-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 5%;
+            background: rgba(10, 11, 16, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .dash-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .dash-logo i {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dash-topbar .logout-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #f87171;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .dash-topbar .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.6);
+            transform: translateY(-2px);
+        }
+        /* Dashboard Page */
+        .dashboard-container {
+            padding: 110px 0 60px;
+        }
+        .welcome-banner {
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+            border: 1px solid var(--border-color);
+        }
+        .welcome-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .welcome-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .metric-card {
+            padding: 25px;
+            text-align: center;
+            border-radius: 16px;
+        }
+        .metric-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .metric-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .metric-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .panel-header h2 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+        .course-progress-card {
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-radius: 16px;
+        }
+        .course-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+        .course-progress-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .badge-inprogress {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .badge-completed {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .sidebar-card {
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 16px;
+        }
+        .sidebar-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .mentor-session-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .mentor-session-item:last-child { border-bottom: none; }
+        .mentor-session-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .mentor-session-info h4 { font-size: 0.9rem; color: #fff; }
+        .mentor-session-info p { font-size: 0.75rem; color: var(--text-muted); }
+
+        @media (max-width: 1024px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .welcome-banner { flex-direction: column; text-align: center; }
+            .welcome-text h1 { font-size: 1.6rem; }
+            .course-progress-header { flex-direction: column; }
+            .dash-topbar { padding: 14px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slim Dashboard Top Bar (No Full Navbar) -->
+    <div class="dash-topbar">
+        <a href="index.html" class="dash-logo">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </a>
+        <a href="index.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+
+    <!-- Main Dashboard Container -->
+    <div class="container dashboard-container">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner scroll-reveal active">
+            <div class="welcome-text">
+                <h1 id="user-greeting">Welcome back, Student!</h1>
+                <p>Track your assignments, lessons, and schedules below.</p>
+            </div>
+            <button class="btn-gradient">My Enrolled Courses</button>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid scroll-reveal active">
+            <div class="metric-card glass-panel">
+                <i class="fas fa-play-circle"></i>
+                <h3>3</h3>
+                <p>Active Courses</p>
+            </div>
+            <div class="metric-card glass-panel">
+                <i class="fas fa-check-circle"></i>
+                <h3>12</h3>
+                <p>Completed Lessons</p>
+            </div>
+            <div class="metric-card glass-panel">
+                <i class="fas fa-hourglass-half"></i>
+                <h3>42h</h3>
+                <p>Total Study Time</p>
+            </div>
+            <div class="metric-card glass-panel">
+                <i class="fas fa-award"></i>
+                <h3>2</h3>
+                <p>Verifiable Badges</p>
+            </div>
+        </div>
+
+        <!-- Core Dashboard Grid -->
+        <div class="dashboard-grid scroll-reveal active">
+            <!-- Active Courses list -->
+            <div class="courses-panel">
+                <div class="panel-header">
+                    <h2>Active Learning Cohorts</h2>
+                    <button class="btn-secondary" style="padding: 6px 15px; font-size: 0.8rem;">Browse Catalog</button>
+                </div>
+
+                <!-- Course 1 -->
+                <div class="course-progress-card glass-panel">
+                    <div class="course-progress-header">
+                        <div>
+                            <h3 style="font-size: 1.05rem; color: #fff;">Full Stack Web Development Masterclass</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Sarah Jenkins &bull; Dev Track</p>
+                        </div>
+                        <span class="badge-inprogress">In Progress</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                    </div>
+                    <div class="course-progress-footer">
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">75% Completed (18/24 Lessons)</span>
+                        <button class="btn-gradient" style="padding: 8px 18px; font-size: 0.8rem;">Resume Class</button>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-progress-card glass-panel">
+                    <div class="course-progress-header">
+                        <div>
+                            <h3 style="font-size: 1.05rem; color: #fff;">UI/UX Design Frameworks & Prototyping</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">David Vance &bull; Design Track</p>
+                        </div>
+                        <span class="badge-inprogress">In Progress</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 40%;"></div>
+                    </div>
+                    <div class="course-progress-footer">
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">40% Completed (7/18 Lessons)</span>
+                        <button class="btn-gradient" style="padding: 8px 18px; font-size: 0.8rem;">Resume Class</button>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-progress-card glass-panel">
+                    <div class="course-progress-header">
+                        <div>
+                            <h3 style="font-size: 1.05rem; color: #fff;">Modern JavaScript Fundamentals</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Stackly Tech Team &bull; Prep Track</p>
+                        </div>
+                        <span class="badge-completed">Completed</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 100%; background: var(--success);"></div>
+                    </div>
+                    <div class="course-progress-footer">
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">100% (12/12 Lessons)</span>
+                        <button class="btn-secondary" style="padding: 8px 18px; font-size: 0.8rem;"><i class="fas fa-certificate"></i> View Certificate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar-panel">
+                <div class="sidebar-card glass-panel">
+                    <h3>Upcoming Mentor Sessions</h3>
+                    <div class="mentor-session-item">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150" alt="Mentor">
+                        <div class="mentor-session-info">
+                            <h4>Sarah Jenkins</h4>
+                            <p>Today at 3:00 PM (Dev Q&A)</p>
+                        </div>
+                    </div>
+                    <div class="mentor-session-item">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150" alt="Mentor">
+                        <div class="mentor-session-info">
+                            <h4>David Vance</h4>
+                            <p>Tomorrow at 11:00 AM (UI Feedback)</p>
+                        </div>
+                    </div>
+                    <button class="btn-gradient full-width" style="margin-top: 20px; font-size: 0.85rem;">Schedule Session</button>
+                </div>
+
+                <div class="sidebar-card glass-panel" style="text-align: center;">
+                    <i class="fab fa-slack-hash" style="font-size: 2rem; color: var(--secondary); margin-bottom: 15px;"></i>
+                    <h3>Student Slack Hub</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px;">Collaborate with peers, share code solutions, and receive notifications.</p>
+                    <button class="btn-secondary full-width" style="font-size: 0.85rem;">Launch Slack Workspace</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.name) {
+                document.getElementById('user-greeting').textContent = `Welcome back, ${currentUser.name}!`;
+            }
+        });
+    </script>
+</body>
+</html>

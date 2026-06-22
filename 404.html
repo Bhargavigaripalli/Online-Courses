@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #11131e 0%, #0a0b10 100%);
+            padding: 20px;
+        }
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 50px 40px;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        .error-code::after {
+            content: '404';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.5;
+        }
+        .floating-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        p {
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+        }
+        .back-home-btn {
+            font-size: 1.05rem;
+            padding: 14px 35px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container glass-panel scroll-reveal active">
+        <div class="floating-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="error-code">404</div>
+        <h1>Classroom Not Found</h1>
+        <p>It looks like this learning path has either been moved, updated, or does not exist. Let's get you back on track with your study plan.</p>
+        <a href="index.html" class="btn-gradient back-home-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

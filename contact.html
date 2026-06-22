@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10, 11, 16, 0.85) 0%, rgba(20, 22, 35, 0.9) 100%), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 40%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .info-card {
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .info-card i {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+        }
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .contact-form-panel {
+            padding: 40px;
+        }
+        .contact-form-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        textarea.message-input {
+            width: 100%;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            resize: none;
+            transition: var(--transition);
+        }
+        textarea.message-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+        }
+        .mock-map {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            background: linear-gradient(rgba(10,11,16,0.5), rgba(10,11,16,0.5)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-overlay-card {
+            text-align: center;
+            padding: 25px;
+            max-width: 320px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        .map-overlay-card i {
+            font-size: 2rem;
+            color: var(--error);
+            margin-bottom: 10px;
+        }
+        .office-photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .office-photo {
+            height: 180px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .office-photo:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        .error-border {
+            border-color: var(--error) !important;
+        }
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .office-photos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar" id="myNavbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </div>
+
+        <button class="hamburger" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a></li>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Contact Hero -->
+    <section class="page-hero">
+        <div class="container scroll-reveal">
+            <h1>Contact Stackly Support</h1>
+            <p>Need support on coding labs, certificates, or cohort admission? Reach out to our 24/7 success desk.</p>
+        </div>
+    </section>
+
+    <section class="container section-padding scroll-reveal">
+        <div class="contact-grid">
+            <!-- SECTION 2: Contact Information Cards -->
+            <div class="contact-info-panel">
+                <div class="info-card glass-panel">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email Admissions</h3>
+                        <p>admissions@stackly.com</p>
+                        <p style="margin-top: 5px; font-size: 0.8rem;">Average reply: 2 hours</p>
+                    </div>
+                </div>
+
+                <div class="info-card glass-panel">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Call Support Desk</h3>
+                        <p>+1 (555) 019-2834</p>
+                        <p style="margin-top: 5px; font-size: 0.8rem;">Mon-Fri: 9 AM - 6 PM PST</p>
+                    </div>
+                </div>
+
+                <div class="info-card glass-panel">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Headquarters</h3>
+                        <p>100 Innovation Way, Silicon Valley, CA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Interactive Contact Form with Validation -->
+            <div class="contact-form-panel glass-panel">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm" onsubmit="validateContactForm(event)">
+                    <div class="input-wrapper">
+                        <div class="input-group" id="name-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="contact-name" placeholder="Full Name (Max 16 chars)">
+                        </div>
+                        <div class="error-text" id="error-contact-name">Please enter a valid name.</div>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <div class="input-group" id="email-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="contact-email" placeholder="Email Address">
+                        </div>
+                        <div class="error-text" id="error-contact-email">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <div class="input-group" id="phone-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="text" id="contact-phone" placeholder="Mobile Number (10 Digits)">
+                        </div>
+                        <div class="error-text" id="error-contact-phone">Mobile number must contain exactly 10 digits.</div>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <textarea class="message-input" id="contact-msg" placeholder="Tell us about your learning goals..."></textarea>
+                        <div class="error-text" id="error-contact-msg">Message cannot be empty.</div>
+                    </div>
+
+                    <button type="submit" class="btn-gradient full-width" data-action="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Office Tour & Mock Maps -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Office & Lab Locations</h2>
+                <p>Visit our coding hubs. We host weekly hackathons and tech meetups.</p>
+            </div>
+            
+            <div class="mock-map" style="margin-bottom: 40px;">
+                <div class="map-overlay-card glass-panel">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Silicon Valley Hub</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">100 Innovation Way, Palo Alto, CA</p>
+                    <button class="btn-gradient" style="margin-top: 15px; padding: 8px 18px; font-size: 0.8rem;">Get Directions</button>
+                </div>
+            </div>
+
+            <div class="office-photos">
+                <div class="office-photo" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400');"></div>
+                <div class="office-photo" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=400');"></div>
+                <div class="office-photo" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=400');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FAQ & Slack Workspace Links -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Slack Support & Helpdesk</h2>
+                <p>Direct assistance pipelines for enrolled students.</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>How can I join the student Slack community?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After enrollment is processed, an invitation link will be sent to your registered email, automatically grouping you into your cohort's workspace.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Can I schedule a campus tour at Palo Alto?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Send an email to tour@stackly.com with your preferred date and time, and our student success managers will coordinate the visit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i> stackly
+                    </div>
+                    <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog Articles</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="404.html">Web Development</a></li>
+                        <li><a href="404.html">UI/UX Layouts</a></li>
+                        <li><a href="404.html">Data Engineering</a></li>
+                        <li><a href="404.html">Cloud Architecture</a></li>
+                        <li><a href="404.html">Marketing Strategies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
+                        <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function validateContactForm(e) {
+            e.preventDefault();
+            const nameIn = document.getElementById('contact-name');
+            const emailIn = document.getElementById('contact-email');
+            const phoneIn = document.getElementById('contact-phone');
+            const msgIn = document.getElementById('contact-msg');
+
+            let valid = true;
+
+            // Name validation (letters, max 16)
+            const nameVal = nameIn.value.trim();
+            const nameErr = document.getElementById('error-contact-name');
+            const nameRegex = /^[a-zA-Z\s]+$/;
+            if (nameVal === '' || !nameRegex.test(nameVal) || nameVal.length > 16) {
+                nameErr.style.display = 'block';
+                nameIn.parentElement.classList.add('error-border');
+                valid = false;
+            } else {
+                nameErr.style.display = 'none';
+                nameIn.parentElement.classList.remove('error-border');
+            }
+
+            // Email validation
+            const emailVal = emailIn.value.trim();
+            const emailErr = document.getElementById('error-contact-email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailVal)) {
+                emailErr.style.display = 'block';
+                emailIn.parentElement.classList.add('error-border');
+                valid = false;
+            } else {
+                emailErr.style.display = 'none';
+                emailIn.parentElement.classList.remove('error-border');
+            }
+
+            // Phone validation (10 digits)
+            const phoneVal = phoneIn.value.trim();
+            const phoneErr = document.getElementById('error-contact-phone');
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phoneVal)) {
+                phoneErr.style.display = 'block';
+                phoneIn.parentElement.classList.add('error-border');
+                valid = false;
+            } else {
+                phoneErr.style.display = 'none';
+                phoneIn.parentElement.classList.remove('error-border');
+            }
+
+            // Message validation
+            const msgVal = msgIn.value.trim();
+            const msgErr = document.getElementById('error-contact-msg');
+            if (msgVal === '') {
+                msgErr.style.display = 'block';
+                msgIn.classList.add('error-border');
+                valid = false;
+            } else {
+                msgErr.style.display = 'none';
+                msgIn.classList.remove('error-border');
+            }
+
+            if (valid) {
+                alert('Thank you! Your message has been sent successfully. One of our student success managers will contact you soon.');
+                nameIn.value = '';
+                emailIn.value = '';
+                phoneIn.value = '';
+                msgIn.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

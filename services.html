@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Stackly Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10, 11, 16, 0.9) 0%, rgba(20, 22, 35, 0.95) 100%), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 40%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar" id="myNavbar">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <i class="fas fa-graduation-cap"></i> stackly
+        </div>
+
+        <button class="hamburger" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="services.html" class="nav-link active"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            <div class="nav-actions-mobile">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Services Hero -->
+    <section class="page-hero">
+        <div class="container scroll-reveal">
+            <h1>Our Learning Services</h1>
+            <p>We provide a comprehensive support network of interactive resources to build, track, and secure your tech career path.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Core Learning Services -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Customized Mentorship & Platforms</h2>
+                <p>Learn efficiently using tools customized for technical mastery.</p>
+            </div>
+            <div class="category-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="category-card glass-panel">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>1-on-1 Mentorship</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Schedule live check-ins with field veterans to critique projects and review complex code structures.</p>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-terminal"></i>
+                    <h3>Code Playgrounds</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Run code directly in browser-integrated labs, removing local machine configuration delays.</p>
+                </div>
+                <div class="category-card glass-panel">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Student Success Team</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Our dedicated success managers assist in study planning, time management, and support coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Career Cell & Placement -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="why-container">
+                <div class="why-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800" class="why-image" alt="Job Interview Mockup">
+                </div>
+                <div class="why-content">
+                    <h2>Job Placement Cell & Support</h2>
+                    <p>Stackly Academy goes beyond simple instruction. We focus heavily on ensuring your portfolio receives direct corporate visibility.</p>
+                    <div class="why-features">
+                        <div class="why-feature-item">
+                            <i class="fas fa-file-invoice"></i>
+                            <div>
+                                <h3>Resume & Portfolio Reviews</h3>
+                                <p>Gain structured, line-by-line feedback on your technical CV and GitHub repositories from active recruiters.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature-item">
+                            <i class="fas fa-comments"></i>
+                            <div>
+                                <h3>Mock Interview Drills</h3>
+                                <p>Simulate technical coding rounds and system architecture reviews under realistic pressure conditions.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <h3>Direct Partner Referrals</h3>
+                                <p>Bypass initial candidate pipelines via our exclusive partnerships, getting directly referred to hiring managers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Corporate Training solutions -->
+    <section class="section-padding">
+        <div class="container scroll-reveal">
+            <div class="why-container" style="grid-template-columns: 1.2fr 0.8fr;">
+                <div class="why-content">
+                    <h2>Enterprise & Team Training</h2>
+                    <p>Looking to upgrade your engineering or design team's skillset? Stackly Academy provides customizable corporate training portals to keep your staff ahead of technology transitions.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">We create targeted pipelines covering Cloud Architecture, Kubernetes deployment, Cybersecurity guidelines, and UI design standards.</p>
+                    <button class="btn-gradient">Train Your Team</button>
+                </div>
+                <div class="why-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=600" class="why-image" alt="Enterprise Training Panel">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Service FAQ Accordion -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Services FAQ</h2>
+                <p>Common questions regarding our placement cell and mentor schedules.</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>How often can I schedule a 1-on-1 mentor review?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Elite subscribers can schedule up to two 30-minute sessions per month. Single cohorts usually include dedicated live office hours twice a week.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-panel">
+                    <div class="faq-question">
+                        <span>Do you guarantee job placement?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While we do not issue legal placement guarantees, 95% of students completing all labs, mock interviews, and resume reviews successfully secure relevant positions within 6 months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i> stackly
+                    </div>
+                    <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
+                    <div class="social-icons">
+                        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog Articles</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="404.html">Web Development</a></li>
+                        <li><a href="404.html">UI/UX Layouts</a></li>
+                        <li><a href="404.html">Data Engineering</a></li>
+                        <li><a href="404.html">Cloud Architecture</a></li>
+                        <li><a href="404.html">Marketing Strategies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
+                        <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
