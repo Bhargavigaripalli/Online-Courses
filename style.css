@@ -1,14 +1,15 @@
-/* style.css - Home Page Styles */
+ /* style.css - Home Page Styles */
 
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
+    
+    min-height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 .bg-slider {
@@ -72,6 +73,10 @@
 
 .hero-content {
     color: var(--text-light);
+}
+
+.hero-card-wrapper {
+    width: 100%;
 }
 
 .hero-content h1 {
@@ -735,6 +740,12 @@
 
 /* Media Queries for Style */
 @media (max-width: 1024px) {
+    .hero-section {
+        height: auto;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -787,8 +798,16 @@
     }
     
     /* Hero Section */
+    .hero-section {
+        height: auto;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
         gap: 40px;
         padding: 0 16px;
@@ -898,6 +917,12 @@
     .section-header h2 {
         font-size: 1.9rem;
     }
+    .mentors-grid, 
+    .features-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
 }
 
 /* ===== MOBILE: 480px and below ===== */
@@ -932,4 +957,3 @@
         font-size: 0.95rem;
     }
 }
-

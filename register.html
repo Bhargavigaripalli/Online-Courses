@@ -76,14 +76,13 @@
         </div>
 
         <form id="registerForm">
-            <!-- Name Input -->
-            <div class="input-wrapper">
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="name-input" placeholder="Full Name (Max 16 chars, letters only)" required>
-                </div>
-                <div class="error-text" id="error-name">Name must contain only alphabets and be maximum 16 characters.</div>
-            </div>
+             <div class="input-wrapper">
+    <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="name-input" placeholder="Full Name (Max 16 chars, letters only)" required maxlength="16" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+    </div>
+    <div class="error-text" id="error-name">Name must contain only alphabets and be maximum 16 characters.</div>
+</div>
 
             <!-- Email Input -->
             <div class="input-wrapper">
@@ -95,13 +94,13 @@
             </div>
 
             <!-- Mobile Input -->
-            <div class="input-wrapper">
-                <div class="input-group">
-                    <i class="fas fa-phone"></i>
-                    <input type="text" id="phone-input" placeholder="Mobile Number (Exactly 10 digits)" required>
-                </div>
-                <div class="error-text" id="error-phone">Mobile number must contain exactly 10 digits.</div>
-            </div>
+             <div class="input-wrapper">
+    <div class="input-group">
+        <i class="fas fa-phone"></i>
+        <input type="tel" id="phone-input" placeholder="Mobile Number (Exactly 10 digits)" required maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    </div>
+    <div class="error-text" id="error-phone">Mobile number must contain exactly 10 digits.</div>
+</div>
 
             <!-- Password Input -->
             <div class="input-wrapper">

@@ -184,75 +184,73 @@
         </div>
     </section>
 
-    <section class="container section-padding scroll-reveal">
-        <div class="contact-grid">
-            <!-- SECTION 2: Contact Information Cards -->
-            <div class="contact-info-panel">
-                <div class="info-card glass-panel">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email Admissions</h3>
-                        <p>admissions@stackly.com</p>
-                        <p style="margin-top: 5px; font-size: 0.8rem;">Average reply: 2 hours</p>
-                    </div>
-                </div>
-
-                <div class="info-card glass-panel">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h3>Call Support Desk</h3>
-                        <p>+1 (555) 019-2834</p>
-                        <p style="margin-top: 5px; font-size: 0.8rem;">Mon-Fri: 9 AM - 6 PM PST</p>
-                    </div>
-                </div>
-
-                <div class="info-card glass-panel">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Headquarters</h3>
-                        <p>100 Innovation Way, Silicon Valley, CA</p>
-                    </div>
+   <section class="container section-padding scroll-reveal">
+    <div class="contact-grid">
+        <div class="contact-info-panel">
+            <div class="info-card glass-panel">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email Admissions</h3>
+                    <p>admissions@stackly.com</p>
+                    <p style="margin-top: 5px; font-size: 0.8rem;">Average reply: 2 hours</p>
                 </div>
             </div>
 
-            <!-- SECTION 3: Interactive Contact Form with Validation -->
-            <div class="contact-form-panel glass-panel">
-                <h2>Send Us a Message</h2>
-                <form id="contactForm" onsubmit="validateContactForm(event)">
-                    <div class="input-wrapper">
-                        <div class="input-group" id="name-group">
-                            <i class="fas fa-user"></i>
-                            <input type="text" id="contact-name" placeholder="Full Name (Max 16 chars)">
-                        </div>
-                        <div class="error-text" id="error-contact-name">Please enter a valid name.</div>
-                    </div>
+            <div class="info-card glass-panel">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>Call Support Desk</h3>
+                    <p>+1 (555) 019-2834</p>
+                    <p style="margin-top: 5px; font-size: 0.8rem;">Mon-Fri: 9 AM - 6 PM PST</p>
+                </div>
+            </div>
 
-                    <div class="input-wrapper">
-                        <div class="input-group" id="email-group">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="contact-email" placeholder="Email Address">
-                        </div>
-                        <div class="error-text" id="error-contact-email">Please enter a valid email address.</div>
-                    </div>
-
-                    <div class="input-wrapper">
-                        <div class="input-group" id="phone-group">
-                            <i class="fas fa-phone"></i>
-                            <input type="text" id="contact-phone" placeholder="Mobile Number (10 Digits)">
-                        </div>
-                        <div class="error-text" id="error-contact-phone">Mobile number must contain exactly 10 digits.</div>
-                    </div>
-
-                    <div class="input-wrapper">
-                        <textarea class="message-input" id="contact-msg" placeholder="Tell us about your learning goals..."></textarea>
-                        <div class="error-text" id="error-contact-msg">Message cannot be empty.</div>
-                    </div>
-
-                    <button type="submit" class="btn-gradient full-width" data-action="submit">Send Message <i class="fas fa-paper-plane"></i></button>
-                </form>
+            <div class="info-card glass-panel">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Headquarters</h3>
+                    <p>100 Innovation Way, Silicon Valley, CA</p>
+                </div>
             </div>
         </div>
-    </section>
+
+        <div class="contact-form-panel glass-panel">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm" onsubmit="validateContactForm(event)">
+                <div class="input-wrapper">
+                    <div class="input-group" id="name-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="contact-name" placeholder="Full Name (Max 16 chars)" maxlength="16">
+                    </div>
+                    <div class="error-text" id="error-contact-name">Please enter a valid name.</div>
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="input-group" id="email-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="contact-email" placeholder="Email Address">
+                    </div>
+                    <div class="error-text" id="error-contact-email">Please enter a valid email address.</div>
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="input-group" id="phone-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="contact-phone" placeholder="Mobile Number (10 Digits)" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                    <div class="error-text" id="error-contact-phone">Mobile number must contain exactly 10 digits.</div>
+                </div>
+
+                <div class="input-wrapper">
+                    <textarea class="message-input" id="contact-msg" placeholder="Tell us about your learning goals..."></textarea>
+                    <div class="error-text" id="error-contact-msg">Message cannot be empty.</div>
+                </div>
+
+                <button type="submit" class="btn-gradient full-width" data-action="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+</section>
 
     <!-- SECTION 4: Office Tour & Mock Maps -->
     <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);">
@@ -312,62 +310,62 @@
 
     <!-- Footer Section -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <i class="fas fa-graduation-cap"></i> stackly
-                    </div>
-                    <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
-                    <div class="social-icons">
-                        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+                    <i class="fas fa-graduation-cap"></i> stackly
                 </div>
-
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="blog.html">Blog Articles</a></li>
-                        <li><a href="contact.html">Contact Support</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="404.html">Web Development</a></li>
-                        <li><a href="404.html">UI/UX Layouts</a></li>
-                        <li><a href="404.html">Data Engineering</a></li>
-                        <li><a href="404.html">Cloud Architecture</a></li>
-                        <li><a href="404.html">Marketing Strategies</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contact">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
-                        <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
-                        <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
-                    </ul>
+                <p>A premium online learning platform delivering top-tier educational materials, certificates, and careers.</p>
+                <div class="social-icons">
+                    <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="404.html">Privacy Policy</a>
-                    <a href="404.html">Terms of Service</a>
-                </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog Articles</a></li>
+                    <li><a href="contact.html">Contact Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="404.html">Web Development</a></li>
+                    <li><a href="404.html">UI/UX Layouts</a></li>
+                    <li><a href="404.html">Data Engineering</a></li>
+                    <li><a href="404.html">Cloud Architecture</a></li>
+                    <li><a href="404.html">Marketing Strategies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 100 Innovation Way, Silicon Valley, CA</li>
+                    <li><i class="fas fa-phone-alt"></i> +1 (555) 019-2834</li>
+                    <li><i class="fas fa-envelope"></i> contact@stackly.com</li>
+                </ul>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stackly Academy. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script src="script.js"></script>
     <script>
