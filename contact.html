@@ -220,7 +220,12 @@
                 <div class="input-wrapper">
                     <div class="input-group" id="name-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="contact-name" placeholder="Full Name (Max 16 chars)" maxlength="16">
+                         <input
+    type="text"
+    id="contact-name"
+    placeholder="Full Name (Max 16 chars)"
+    maxlength="16"
+    oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                     </div>
                     <div class="error-text" id="error-contact-name">Please enter a valid name.</div>
                 </div>
